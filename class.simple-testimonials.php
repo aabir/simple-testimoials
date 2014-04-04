@@ -8,7 +8,7 @@ final class simple_testimonial_plugin {
 		add_action( 'init', array( __CLASS__, "simple_testimonials_cpt" ) );
 		
 		add_action( 'manage_posts_custom_column', array( __CLASS__, 'testimonial_column' ), 10, 2 );
-		//add_filter( 'manage_edit-testimonial_columns', array( __CLASS__, 'testimonial_columns' ), 5 );
+		add_filter( 'manage_edit-simple_testimonial_columns', array( __CLASS__, 'testimonial_columns' ), 5 );
 		
 		add_action("add_meta_boxes", array( __CLASS__, 'simple_testimonial_add_custom_box' ));
 		add_action("save_post", array( __CLASS__, 'simple_testimonial_save_postdata' ));
@@ -21,25 +21,23 @@ final class simple_testimonial_plugin {
 		update_option( 'ct_activated', time() );
 	}
 	
-	/*public static function testimonial_columns ( $columns ) {
+	public static function testimonial_columns ( $columns ) {
 
 		unset( $columns['date'] );
 		$columns['client_designation'] = 'Designation';
 		$columns['client_company'] = 'Company';
 		$columns['testimonial_thumbnail'] = 'Thumbnail';
-
 		$columns['date'] = 'Date';
 
 		return $columns;
 
-	}*/
+	}
 	
 	public static function testimonial_column ( $column, $post_id ) {
 
 		global $post;
 		
-		
-		/*if( $post->post_type != 'simple_testimonial' )
+		if( $post->post_type != 'simple_testimonial' )
 			return;
 
 		switch( $column ) {
@@ -52,15 +50,23 @@ final class simple_testimonial_plugin {
 					echo 'No thumbnail supplied';
 
 				break;
+				
+			case 'client_designation':	
+				$client_designation = get_post_meta($post->ID, '_client_designation', true);
+				echo $client_designation == '' ? '<em>N/A</em>' : $client_designation;
+				break;
+			
+			case 'client_company':	
+				$client_company = get_post_meta($post->ID, '_client_company', true);	
+				echo $client_company = '' ? '<em>N/A</em>' : $client_company;
+				break;
 
 			default:
 
 				$value = get_post_meta( $post->ID, $column, true );
 				echo $value == '' ? '<em>N/A</em>' : $value;
-
-		}*/
+		}
 		
-
 	}
 
 	public function simple_testimonials_cpt() {
