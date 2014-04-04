@@ -2,13 +2,15 @@
 
 final class simple_testimonial_plugin {
 
+	// This is the main class to init. 	
+	
 	public function __construct(){
 		$plugin_name = 'simple_testimonial_plugin';
 		
 		add_action( 'init', array( __CLASS__, "simple_testimonials_cpt" ) );
 		
-		add_action( 'manage_posts_custom_column', array( __CLASS__, 'testimonial_column' ), 10, 2 );
-		add_filter( 'manage_edit-simple_testimonial_columns', array( __CLASS__, 'testimonial_columns' ), 5 );
+		add_action( 'manage_posts_custom_column', array( __CLASS__, 'testimonial_column' ), 10, 2 ); // Then register column
+		add_filter( 'manage_edit-simple_testimonial_columns', array( __CLASS__, 'testimonial_columns' ), 5 ); //First give CPT name
 		
 		add_action("add_meta_boxes", array( __CLASS__, 'simple_testimonial_add_custom_box' ));
 		add_action("save_post", array( __CLASS__, 'simple_testimonial_save_postdata' ));
