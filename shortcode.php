@@ -60,5 +60,5 @@
 <?php 	
 }
 
-add_shortcode("testimonials", "testimonial_shortcode");
+add_shortcode("simple_testimonials", "testimonial_shortcode");
 ?>
