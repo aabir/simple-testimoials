@@ -11,7 +11,6 @@ final class Simple_Testimonial_Widget_Class extends WP_Widget {
 	
 		function form($instance) {
 	
-			// Check values
 			if( $instance) {
 				 $title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 				 $number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
