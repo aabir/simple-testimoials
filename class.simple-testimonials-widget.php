@@ -11,6 +11,7 @@ final class Simple_Testimonial_Widget_Class extends WP_Widget {
 	
 		function form($instance) {
 	
+			// Check values
 			if( $instance) {
 				 $title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 				 $number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
@@ -45,7 +46,6 @@ final class Simple_Testimonial_Widget_Class extends WP_Widget {
 				if(!is_admin() ){
 				
 					wp_enqueue_style( 'flexslider', plugin_dir_url( __FILE__ ) . 'css/flexslider.css' );
-					wp_enqueue_style( 'testimonials', plugin_dir_url( __FILE__ ) . 'css/testimoials.css' );
 					wp_enqueue_script( 'flexslider', plugin_dir_url( __FILE__ ). 'js/jquery.flexslider-min.js');
 					wp_enqueue_script( 'custom', plugin_dir_url( __FILE__ ). 'js/init.js');
 				}?>

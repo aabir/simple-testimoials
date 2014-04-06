@@ -1,6 +1,6 @@
 <?php
 
-final class simple_testimonial_plugin {
+final class Simple_Testimonial_Plugin {
 
 	// This is the main class to init. 	
 	
@@ -16,6 +16,8 @@ final class simple_testimonial_plugin {
 		add_action("save_post", array( __CLASS__, 'simple_testimonial_save_postdata' ));
 		
 		add_action('widgets_init', create_function('', 'return register_widget("Simple_Testimonial_Widget_Class");'));
+		
+		wp_enqueue_style( 'testimonials', plugin_dir_url( __FILE__ ) . 'css/testimoials.css' );
 		
 	}
 	
