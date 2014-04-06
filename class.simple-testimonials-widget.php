@@ -4,7 +4,7 @@ final class Simple_Testimonial_Widget_Class extends WP_Widget {
 		
 		function __construct() {
 			
-			$widget_ops = array('classname' => 'shop_cpt_widget_class', 'description' => __('Testimonials', 'simple_testimonial_widget'));
+			$widget_ops = array('classname' => 'shop_cpt_widget_class', 'description' => __('Simple Testimonials', 'simple_testimonial_widget'));
 			$control_ops = array('width' => 250, 'height' => 250);
 			parent::WP_Widget(false, $name = __('Testimonials Widget', 'simple_testimonial_widget'), $widget_ops, $control_ops );
 		}
