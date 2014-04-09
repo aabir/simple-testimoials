@@ -10,7 +10,7 @@
 
 /* ShortCode */
 .testimonial-container { width: 100%; margin: 0 auto; overflow: hidden; position: relative; }
-.client-box { width: 50%;  padding: 10px; float: left; padding: 20px; }
+.client-box { width: 50%;  padding: 10px; float: left; padding: 20px; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-box-sizing: border-box;}
 .client-img { float: left; margin-right: 20px; }
 .client-img img { width: 80px; height: 80px; border-radius: 50%; padding: 10px; }
 .client-saying { color: #adadad; font-size: 14px; font-weight: normal; overflow: hidden; line-height: 20px; margin-bottom: 15px; }
